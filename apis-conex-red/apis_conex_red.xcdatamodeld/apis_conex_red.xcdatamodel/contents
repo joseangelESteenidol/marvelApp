@@ -1,4 +1,29 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <elements/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14460.32" systemVersion="18B75" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Autores" representedClassName="Autores" syncable="YES" codeGenerationType="class">
+        <attribute name="autor" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="rol" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="autoresComic" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Comics" inverseName="autores" inverseEntity="Comics" syncable="YES"/>
+    </entity>
+    <entity name="Comics" representedClassName="Comics" syncable="YES" codeGenerationType="class">
+        <attribute name="descriptionComic" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="imageDisco" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
+        <attribute name="imagenURL" optional="YES" attributeType="URI" syncable="YES"/>
+        <attribute name="issueNumber" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="prices" attributeType="Double" minValueString="0" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="title" attributeType="String" syncable="YES"/>
+        <attribute name="variantDescription" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="autores" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Autores" inverseName="autoresComic" inverseEntity="Autores" syncable="YES"/>
+        <relationship name="personajes" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Personajes" inverseName="personajesComic" inverseEntity="Personajes" syncable="YES"/>
+    </entity>
+    <entity name="Personajes" representedClassName="Personajes" syncable="YES" codeGenerationType="class">
+        <attribute name="nombre" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="personajesComic" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Comics" inverseName="personajes" inverseEntity="Comics" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Comics" positionX="-364.58984375" positionY="221.16796875" width="128" height="193"/>
+        <element name="Personajes" positionX="-24.9921875" positionY="462.109375" width="128" height="73"/>
+        <element name="Autores" positionX="-24.58984375" positionY="187.77734375" width="128" height="88"/>
+    </elements>
 </model>
